@@ -1,16 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-// import SeasonDisplay from "./SeasonDisplay";
+import SeasonDisplay from "./SeasonDisplay";
 
 class App extends React.Component {
-  // specific to JavaScript
-  constructor(props) {
-    super(props);
-
-    // THIS IS THE ONLY DIRECT ASSIGMENT TO this.state
-    this.state = { lat: null, errorMessage: "" };
-  }
+  state = { lat: null, errorMessage: "" };
 
   // method invoked when the component shows up on the screen
   componentDidMount() {
