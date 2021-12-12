@@ -22,9 +22,8 @@ class App extends React.Component {
     console.log("My component was just updated - it rerandered");
   }
 
-  // React says we have to define render!
-  // it gets called any time the component is updated
-  render() {
+  // helper method for additional logic, when there are multiple return statements inside of render method
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
@@ -34,6 +33,12 @@ class App extends React.Component {
     }
 
     return <Spinner message="Please accept location request..." />;
+  }
+
+  // React says we have to define render!
+  // it gets called any time the component is updated
+  render() {
+    return <div className="border white">{this.renderContent()}</div>;
   }
 }
 
