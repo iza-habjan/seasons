@@ -10,21 +10,15 @@ class App extends React.Component {
 
     // THIS IS THE ONLY DIRECT ASSIGMENT TO this.state
     this.state = { lat: null, errorMessage: "" };
-
-    window.navigator.geolocation.getCurrentPosition(
-      (position) => {
-        // any other time state needs to be changed or set, this.setState is called!
-        this.setState({ lat: position.coords.latitude });
-      },
-      (err) => {
-        this.setState({ errorMessage: err.message });
-      }
-    );
   }
 
   // method invoked when the component shows up on the screen
   componentDidMount() {
-    console.log("My component was rendered to the screen");
+    window.navigator.geolocation.getCurrentPosition(
+      // any other time state needs to be changed or set, this.setState is called!
+      (position) => this.setState({ lat: position.coords.latitude }),
+      (err) => this.setState({ errorMessage: err.message })
+    );
   }
 
   // render method gets called when component updates, JSX is returned, shown on the screen and...
