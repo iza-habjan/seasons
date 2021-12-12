@@ -22,7 +22,19 @@ class App extends React.Component {
     );
   }
 
+  // method invoked when the component shows up on the screen
+  componentDidMount() {
+    console.log("My component was rendered to the screen");
+  }
+
+  // render method gets called when component updates, JSX is returned, shown on the screen and...
+  // ...after the componentDidUpdate method is invoked
+  componentDidUpdate() {
+    console.log("My component was just updated - it rerandered");
+  }
+
   // React says we have to define render!
+  // it gets called any time the component is updated
   render() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
